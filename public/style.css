@@ -10,3 +10,21 @@ body {
   margin: 8px auto;
   width: 200px
 }
+
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.img-tile {
+  position: relative;
+  top: 30px;
+  width: 33.33%;
+}
+
+.photo {
+  width: 100%
+}
