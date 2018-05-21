@@ -38,7 +38,7 @@ describe('Testing endpoints', () => {
         response.body[0].should.have.property('created_at');
         response.body[0].should.have.property('updated_at');
         response.body[0].name.should.equal('Adventure1');
-      done();
+        done();
       });
     });
 
@@ -47,13 +47,13 @@ describe('Testing endpoints', () => {
       .get('/api/v1/phosphorus')
       .end((error, response) => {
         response.should.have.status(404);
-      done();
+        done();
       });
     });
   });
 
   describe('POST', () => {
-    it('POST photo', (done) => {
+    it('POST a photo', (done) => {
       chai.request(app)
       .post('/api/v1/photos').send({
           name: 'XTREME',
@@ -65,7 +65,7 @@ describe('Testing endpoints', () => {
         response.body.should.be.an('object');
         response.body.should.have.property('id');
         response.body.id.should.equal(3);
-      done();
+        done();
       });
     });
 
@@ -77,7 +77,7 @@ describe('Testing endpoints', () => {
       .end((error, response) => {
         response.should.have.status(422)
         response.body.should.deep.equal({ error: 'Missing data' });
-      done();
+        done();
       });
     });
 
@@ -89,9 +89,28 @@ describe('Testing endpoints', () => {
       .end((error, response) => {
         response.should.have.status(422)
         response.body.should.deep.equal({ error: 'Missing data' });
-      done();
+        done();
       });
     });
   });
 
+  describe('DELETE', () => {
+    it('DELETE a photo with an id', (done) => {
+      chai.request(app)
+      .delete('/api/v1/photos/2')
+      .end((error, response) => {
+        response.should.have.status(202)
+        done();
+      });
+    });
+
+    it('should not DELETE a photo if ID does not exist', (done) => {
+      chai.request(app)
+      .delete('/api/v1/photos/3000')
+      .end((error, response) => {
+        response.should.have.status(404)
+        done();
+      });
+    });
+  });
 });
