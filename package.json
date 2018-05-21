@@ -1,12 +1,32 @@
 {
   "name": "photo-trapper-keeper",
   "version": "1.0.0",
-  "description": "",
   "main": "knexfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha --exit",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "git+https://github.com/chaijs/chai-http.git#3ea4524",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "pg": "^7.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chunktooth/photo-tracker-keeper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chunktooth/photo-tracker-keeper/issues"
+  },
+  "homepage": "https://github.com/chunktooth/photo-tracker-keeper#readme",
+  "description": ""
 }
