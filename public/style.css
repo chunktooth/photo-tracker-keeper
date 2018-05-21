@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+header {
+  background-color: #FFC300;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.add-btn {
+  margin-bottom: 0;
+}
+
+.title-input,
+.url-input,
+.add-btn {
+  display: block;
+  margin: 8px auto;
+  width: 200px
+}
+
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.img-tile {
+  position: relative;
+  top: 33px;
+  width: 33.33%;
+}
+
+.name {
+  position: relative;
+  bottom: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+}
+
+.delete-btn {
+  position: relative;
+  top: -60px;
+}
+
+.photo {
+  width: 100%
+}
