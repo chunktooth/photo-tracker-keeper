@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  text-align: center
+}
+
+.title-input,
+.url-input,
+.add-btn {
+  display: block;
+  margin: 8px auto;
+  width: 200px
+}
