@@ -55,7 +55,42 @@ describe('Testing endpoints', () => {
   describe('POST', () => {
     it('POST photo', (done) => {
       chai.request(app)
-      
+      .post('/api/v1/photos').send({
+          name: 'XTREME',
+          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcNvWTfy4cPvBxTwOa-bONMqdds2crsrn5UMmSjpnprZ9RurfE4Q'
+      })
+      .end((error, response) => {
+        response.should.have.status(201);
+        response.should.be.json;
+        response.body.should.be.an('object');
+        response.body.should.have.property('id');
+        response.body.id.should.equal(3);
+      done();
+      });
+    });
+
+    it('should not POST a new photo if name is blank', (done) => {
+      chai.request(app)
+      .post('/api/v1/photos').send({
+        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcNvWTfy4cPvBxTwOa-bONMqdds2crsrn5UMmSjpnprZ9RurfE4Q'
+      })
+      .end((error, response) => {
+        response.should.have.status(422)
+        response.body.should.deep.equal({ error: 'Missing data' });
+      done();
+      });
+    });
+
+    it('should not POST a new photo if url is blank', (done) => {
+      chai.request(app)
+      .post('/api/v1/photos').send({
+        name: 'XTREME'
+      })
+      .end((error, response) => {
+        response.should.have.status(422)
+        response.body.should.deep.equal({ error: 'Missing data' });
+      done();
+      });
     });
   });
 
