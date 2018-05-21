@@ -14,9 +14,9 @@ function loadPhotos(photos) {
   .then(photos => photos.forEach(photo => {
     return $('.display').append(`
       <div class='img-tile' id=${photo.id}>
-        <h1 class='name'>${photo.name}</h1>
         <img src=${photo.url} class='photo' />
-        <button class='delete-btn'>[ X ]</button>
+        <h4 class='name'>${photo.name}</h4>
+        <button class='delete-btn'>Delete</button>
       </div>
     `)
   }))

@@ -1,6 +1,19 @@
 body {
+  margin: 0;
   font-family: sans-serif;
-  text-align: center
+  text-align: center;
+}
+
+header {
+  background-color: #FFC300;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.add-btn {
+  margin-bottom: 0;
 }
 
 .title-input,
@@ -17,12 +30,25 @@ body {
   box-sizing: border-box;
   flex-grow: 1;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .img-tile {
   position: relative;
-  top: 30px;
+  top: 33px;
   width: 33.33%;
+}
+
+.name {
+  position: relative;
+  bottom: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+}
+
+.delete-btn {
+  position: relative;
+  top: -60px;
 }
 
 .photo {
