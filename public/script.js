@@ -1,4 +1,6 @@
 loadPhotos();
+$('.add-btn').on('click', addPhoto);
+$('.display').on('click', '.delete-btn', deletePhoto);
 
 function loadPhotos(photos) {
   return fetch('/api/v1/photos', {
@@ -11,16 +13,15 @@ function loadPhotos(photos) {
   .then(response => response.json())
   .then(photos => photos.forEach(photo => {
     return $('.display').append(`
-      <div class="img-tile">
-        <h1 class="name">${photo.name}</h1>
-        <img src=${photo.url} class="photo" />
+      <div class='img-tile' id=${photo.id}>
+        <h1 class='name'>${photo.name}</h1>
+        <img src=${photo.url} class='photo' />
+        <button class='delete-btn'>[ X ]</button>
       </div>
     `)
   }))
   .catch(error => console.log(error));
 };
-
-$('.add-btn').on('click', addPhoto);
 
 function addPhoto(event) {
   event.preventDefault();
@@ -39,8 +40,8 @@ function addPhoto(event) {
   })
   .then(response => response.json())
   .then(photo => console.log(photo))
+  .then(() => location.reload())
   .catch(error => console.log(error));
-
   resetForm();
 };
 
@@ -48,3 +49,14 @@ function resetForm() {
   $('.title-input').val('');
   $('.url-input').val('');
 };
+
+function deletePhoto() {
+  let id = $(this).parent('div').attr('id');
+
+  return fetch(`/api/v1/photos/${id}`, {
+    method: 'DELETE'
+  })
+  .then(() => location.reload())
+  .catch(error => console.log(error));
+  $(this).parent().remove();
+}
