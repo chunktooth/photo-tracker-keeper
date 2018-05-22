@@ -99,7 +99,7 @@ describe('Testing endpoints', () => {
       chai.request(app)
       .delete('/api/v1/photos/2')
       .end((error, response) => {
-        response.should.have.status(202)
+        response.should.have.status(200)
         done();
       });
     });
