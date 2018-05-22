@@ -40,7 +40,7 @@ function addPhoto(event) {
   })
   .then(response => response.json())
   .then(photo => console.log(photo))
-  .then(() => loadPhotos())
+  .then(() => location.reload())
   .catch(error => console.log(error));
   resetForm();
 };
@@ -56,7 +56,7 @@ function deletePhoto() {
   return fetch(`/api/v1/photos/${id}`, {
     method: 'DELETE'
   })
-  .then(() => loadPhotos())
+  .then(() => location.reload())
   .catch(error => console.log(error));
   $(this).parent().remove();
 }
