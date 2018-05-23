@@ -1,4 +1,7 @@
-loadPhotos();
+$(window).on('load', function() {
+ loadPhotos(); 
+});
+
 $('.add-btn').on('click', addPhoto);
 $('.display').on('click', '.delete-btn', deletePhoto);
 
@@ -39,10 +42,16 @@ function addPhoto(event) {
     }
   })
   .then(response => response.json())
-  .then(photo => console.log(photo))
-  .then(() => location.reload())
+  .then(photoId =>
+    $('.display').append(`
+      <div class='img-tile' id=${photoId.id}>
+        <img src=${urlInput} class='photo' />
+        <h4 class='name'>${titleInput}</h4>
+        <button class='delete-btn'>Delete</button>
+      </div>
+    `))
+  .then(() => resetForm())
   .catch(error => console.log(error));
-  resetForm();
 };
 
 function resetForm() {
@@ -56,7 +65,6 @@ function deletePhoto() {
   return fetch(`/api/v1/photos/${id}`, {
     method: 'DELETE'
   })
-  .then(() => location.reload())
+  .then(() =>  $(this).parent('div').remove())
   .catch(error => console.log(error));
-  $(this).parent().remove();
 }

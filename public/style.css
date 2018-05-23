@@ -5,6 +5,7 @@ body {
 }
 
 header {
+  padding: 20px 0;
   background-color: #FFC300;
 }
 
@@ -30,18 +31,17 @@ h1 {
   box-sizing: border-box;
   flex-grow: 1;
   flex-direction: row;
+  position: relative;
   cursor: pointer;
 }
 
 .img-tile {
-  position: relative;
-  top: 33px;
   width: 33.33%;
 }
 
 .name {
   position: relative;
-  bottom: 44px;
+  bottom: 42px;
   background: rgba(0, 0, 0, 0.5);
   color: #FFFFFF;
 }
