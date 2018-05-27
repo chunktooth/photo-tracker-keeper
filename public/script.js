@@ -57,7 +57,7 @@ function addPhoto(event) {
 function resetForm() {
   $('.title-input').val('');
   $('.url-input').val('');
-};
+}
 
 function deletePhoto() {
   let id = $(this).parent('div').attr('id');
