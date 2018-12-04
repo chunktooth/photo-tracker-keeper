@@ -1,5 +1,5 @@
 # photo-tracker-keeper
-#### By [Om Saetehn](https://github.com/chunktooth)
+#### By [Chantakahn Saetehn](https://github.com/chunktooth)
 
 Photo URL collection built at speed within 5 hours! Test-driven with Mocha & Chai, completed with Knex/Express server. Published on Herokuapp http://photo-keeper.herokuapp.com
 
